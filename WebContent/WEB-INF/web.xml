@@ -15,11 +15,33 @@
    <servlet-class>com.demo.MyServlet</servlet-class>
   </servlet>
   
+  <servlet>
+  <servlet-name>MyGeneric</servlet-name>
+  <servlet-class>com.demo.MyGenericServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+  <servlet-name>HttpServletDemo</servlet-name>
+  <servlet-class>com.demo.MyHttpServlet</servlet-class>
+  </servlet>
+  
+  
   
   <!-- Servlet name and url to access servlet -->
   <servlet-mapping>
     <servlet-name>DemoServlet</servlet-name>
     <url-pattern>/login.php</url-pattern>
+  </servlet-mapping>
+  
+  
+  <servlet-mapping>
+   <servlet-name>MyGeneric</servlet-name>
+  <url-pattern>/GenericServletAccess.htm</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  <servlet-name>HttpServletDemo</servlet-name>
+  <url-pattern>/testHttpMethod.htm</url-pattern>
   </servlet-mapping>
   
 </web-app>

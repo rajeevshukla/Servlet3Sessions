@@ -71,10 +71,43 @@ http://localhost:8080/HelloServlet/ExecuteServlet
            
            
           
+       
+       
+       
+        //init 
+        //service  ------ >>>>>>> 
+        //destroy
           
+         getServletInfo() ? 
+         getServletConfig(); ? 
+            
           
           
        
+       
+       http . 
+        
+        we know http provides some methods basic methods that govern data communication  between 
+         client and server. 
+         
+          methods:
+          
+           GET 
+           POST
+           HEAD
+           PUT
+           DELETE
+           OPTION
+           TRACE
+           
+    // not is scope.           
+           CONNECT
+           PATCH 
+           
+           Http -- Hipertext transfer protocol 
+                   link. 
+            
+           
        
        
        
