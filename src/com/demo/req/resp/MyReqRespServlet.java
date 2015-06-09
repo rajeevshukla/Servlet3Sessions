@@ -39,7 +39,7 @@ public class MyReqRespServlet extends HttpServlet {
 		 pw.write("<form action='LoginServlet.htm' method='POST' >");
 		 pw.write("Enter User Name <input type='text' name='username'> <br>");
 		 pw.write("Enter Password <input type='password' name='password'> <br>");
-		 pw.write("<input type='submit'> ");
+		 pw.write("<input type='submit'> "+"<br>ServletContext:"+getServletContext().getInitParameter("globalPropFile"));
 		 pw.write("</body>");
 		 pw.write("</html>");
 		 pw.flush();

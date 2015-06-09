@@ -80,6 +80,9 @@ public class LoginServlet extends HttpServlet {
 					 writer.write("<span style='color : red'>password is blank</span>");
 				 }
 
+				 
+				 
+				 
 				 if(userName.equals("java") && password.equals("session")){
 					 //here we have to do lot of things..
                      					 
@@ -89,9 +92,11 @@ public class LoginServlet extends HttpServlet {
 					 
 					 //redirect or dispatch. 
 					 
-					 response.sendRedirect("Welcome.htm");
+					// response.sendRedirect("Welcome.htm"); //req, respon will be destroyed. 
+					 //you want to send some extra into into request object then you can use request attributes. 
+					 request.setAttribute("customObject", "this is dummy info adding into object");
 					 
-					 //request.getRequestDispatcher("Welcome.htm").forward(request, response);
+					 request.getRequestDispatcher("Welcome.htm").forward(request, response);
 					 
 				 }
 				 

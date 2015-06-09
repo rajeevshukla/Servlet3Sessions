@@ -63,7 +63,7 @@ http://localhost:8080/HelloServlet/ExecuteServlet
            
            what destroy method ? 
            
-           the resource whihc we have initilized in init method must be closed properly so for that we will 
+           the resource which we have initialized in init method must be closed properly so for that we will 
            write resource cleanup operations in destroy method. 
            
            ex. closing file , closing database connection. cache memory cleanup. 
@@ -108,6 +108,52 @@ http://localhost:8080/HelloServlet/ExecuteServlet
                    link. 
             
            
+       
+       
+       
+       Get and Post method  
+          
+       
+       RequestDispatcher and sendRedirect()
+        server --> server means there is no extra effor from browser side in case of request dispatcher. 
+        in case of request dispatcher , request, response object not destroyed. 
+                
+        
+        
+        send redirect -- browser have to do some extra effort to call an url. 
+          http status 302 along with an extra url to call by browser. 
+          but in case of sendREdirect , a new request , reqponse object will be created. 
+          
+          
+          
+        
+         How to add value in request or response object ? 
+         
+         
+         we know how to add data into response stream. 
+         
+         
+         
+         what about request object ? 
+         
+         
+         in request object there are two things you have to care about .
+          
+          Request parameter  (can only come from browser end or client side)
+                              you cann't add parameter on server. 
+                              can hold only string values. 
+                              
+          request attribute.  -- resides on server side only, can be set by server end. 
+                                  can hold anything , either object or string  
+                                  
+                                  
+      Request & Response Object - which is per request on every request it will be created new one. 
+      ServeltConfig object -- which is per servlet. 
+      ServletContext object - which is per application
+          
+          
+       
+       
        
        
        
