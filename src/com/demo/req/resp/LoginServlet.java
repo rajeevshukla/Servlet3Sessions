@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -20,8 +21,9 @@ public class LoginServlet extends HttpServlet {
 	 * @see HttpServlet#HttpServlet()
 	 */
 	public LoginServlet() {
+		
 		super();
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	/**
@@ -92,12 +94,19 @@ public class LoginServlet extends HttpServlet {
 					 
 					 //redirect or dispatch. 
 					 
-					// response.sendRedirect("Welcome.htm"); //req, respon will be destroyed. 
 					 //you want to send some extra into into request object then you can use request attributes. 
 					 request.setAttribute("customObject", "this is dummy info adding into object");
 					 
-					 request.getRequestDispatcher("Welcome.htm").forward(request, response);
-					 
+					  HttpSession session=request.getSession(true); //JSESSIONid   97D43B64938BB1EC0B29231188444152  
+					  
+					  session.setAttribute("userName", "java");
+					  
+					  // session.setMaxInactiveInterval(10); //29 min 
+					  //session timeout
+					  
+					 /* session.getLastAccessedTime()  > 10 second */
+					  response.sendRedirect("Welcome.htm"); //req, respon will be destroyed. 
+					  //request.getRequestDispatcher("Welcome.htm").forward(request, response);
 				 }
 				 
 				 

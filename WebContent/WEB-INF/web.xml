@@ -32,5 +32,10 @@
     <servlet-name>HttpServletDemo</servlet-name>
     <url-pattern>/testHttpMethod.htm</url-pattern>
   </servlet-mapping>
+
+  <session-config>
+      <session-timeout>1</session-timeout>
+  </session-config>
+  
 </web-app>
 <!-- This deployement descriptor. this is main component of project but  -->

@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class WelcomeServlet
@@ -50,19 +51,22 @@ public class WelcomeServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println(request.getHeader("User-Agent"));
-		response.getWriter().write("Welcome "+request.getParameter("username"));
+		response.setContentType("text/html");
+		// 30 minute. 
+		 HttpSession session=request.getSession(false);
+		 System.out.println(session);
+		 if(null== session){ //to check authentication whether user is authenticated or not.
+			 System.out.println("Going to login");
+			 response.sendRedirect("Login.htm");
+			 return;
+		 }
 
+//		System.out.println(request.getHeader("User-Agent"));
+		response.getWriter().write("Welcome :"+session.getAttribute("userName"));
 		response.getWriter().write("<br>extrainfo::"+request.getAttribute("customObject"));
-		
 		response.getWriter().write("<br>clientinfo ::"+request.getHeader("User-Agent"));
 		
-		response.getWriter().write("<br>ABC");
-		response.getWriter().write("<br>ABC");
-		response.getWriter().write("<br>ABC");
-		response.getWriter().write("<br>ABC");
-		response.getWriter().write("<br>ABC");
-		response.getWriter().write("<br>ABC");
+		response.getWriter().write("<br>ABC <a  href='LogoutServlet.htm'>Logout</a>");
 		ServletConfig servletConfig=getServletConfig();
 		
 		response.getWriter().write("<br>ABC ::"+servletConfig.getInitParameter("propFile") + "    <br>ServletContext:"+getServletContext().getInitParameter("globalPropFile"));
